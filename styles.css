@@ -1,0 +1,403 @@
+/* ==========================================================
+   North Star Bakery - Visual Design System
+   Palette (4 colors, taken from the logo):
+     --cream  #FBF6EF  page background
+     --brown  #6B4538  headings, links, buttons, footer
+     --tan    #C49F82  borders and decorative accents only
+     --ink    #2E211B  body text
+   Fonts (2 families): Georgia (headings), system sans-serif (body)
+   Approach: mobile-first; Flexbox layout; media queries at 48em and 64em
+   ========================================================== */
+
+:root {
+  --cream: #FBF6EF;
+  --brown: #6B4538;
+  --tan: #C49F82;
+  --ink: #2E211B;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --space: 1rem;
+}
+
+/* ---------- Base (mobile first) ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+a {
+  color: var(--brown);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--tan);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--brown);
+  outline-offset: 3px;
+}
+
+/* ---------- Skip link (visible only when focused) ---------- */
+body > a:first-child {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.75rem 1rem;
+  background-color: var(--brown);
+  color: var(--cream);
+  z-index: 10;
+}
+
+body > a:first-child:focus {
+  left: 0;
+}
+
+/* ---------- Header and navigation ---------- */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space);
+  padding: var(--space);
+  background-color: var(--cream);
+  border-bottom: 4px solid var(--tan);
+}
+
+header img {
+  width: 110px;
+  border-radius: 0;
+  mix-blend-mode: multiply; /* lets the logo's white box blend into the cream header */
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 0.65rem 1rem;
+  min-height: 44px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  color: var(--brown);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover {
+  border-color: var(--tan);
+}
+
+nav a[aria-current="page"] {
+  background-color: var(--brown);
+  color: var(--cream);
+}
+
+/* ---------- Main content: stacked on mobile ---------- */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem var(--space) 2.5rem;
+}
+
+main > p {
+  margin: 0;
+  max-width: 65ch;
+}
+
+section {
+  padding: 1.25rem;
+  border: 2px solid var(--tan);
+  border-radius: 12px;
+}
+
+section > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Typography and hierarchy ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 0;
+  color: var(--brown);
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--tan);
+  color: var(--brown);
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 1.25rem 0 0.25rem;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+p,
+li {
+  max-width: 65ch;
+}
+
+section ul {
+  padding-left: 1.25rem;
+}
+
+section li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Media ---------- */
+section img,
+section picture,
+figure {
+  margin: 0.75rem 0;
+}
+
+audio {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0.75rem 0;
+}
+
+figure {
+  padding: 0.75rem;
+  border-left: 6px solid var(--tan);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+address {
+  font-style: normal;
+  font-weight: 700;
+  margin: 0.75rem 0;
+}
+
+/* ---------- Form ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 2px solid var(--tan);
+  border-radius: 8px;
+}
+
+legend {
+  padding: 0 0.5rem;
+  color: var(--brown);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+fieldset p {
+  margin: 0 0 1rem;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 32rem;
+  padding: 0.65rem;
+  border: 2px solid var(--brown);
+  border-radius: 6px;
+  background-color: var(--cream);
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  min-height: 44px;
+  margin: 0 0.5rem 0.5rem 0;
+  padding: 0.65rem 1.5rem;
+  border: 2px solid var(--brown);
+  border-radius: 999px;
+  background-color: var(--brown);
+  color: var(--cream);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button[type="reset"] {
+  background-color: var(--cream);
+  color: var(--brown);
+}
+
+button:hover {
+  border-color: var(--tan);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 1.5rem var(--space);
+  background-color: var(--brown);
+  color: var(--cream);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+footer p {
+  max-width: none;
+  margin: 0.25rem 0;
+}
+
+footer a {
+  color: var(--cream);
+}
+
+footer a:hover {
+  text-decoration-color: var(--tan);
+}
+
+/* ==========================================================
+   Tablet and up (48em = 768px): header in a row, two-column grid
+   built with Flexbox
+   ========================================================== */
+@media (min-width: 48em) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space) 2rem;
+  }
+
+  header img {
+    width: 130px;
+  }
+
+  nav ul {
+    justify-content: flex-end;
+  }
+
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 2rem;
+  }
+
+  /* heading and intro paragraphs span the full width */
+  main > h1,
+  main > p {
+    flex: 1 1 100%;
+  }
+
+  /* sections sit side by side; a lone last section grows to fill the row */
+  main > section {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 0;
+  }
+
+  /* the form gets the full row */
+  main > section[aria-labelledby="form-heading"] {
+    flex-basis: 100%;
+  }
+
+  form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  fieldset {
+    flex: 1 1 calc(50% - 0.75rem);
+  }
+
+  form > p {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==========================================================
+   Desktop (64em = 1024px): more breathing room, larger type
+   ========================================================== */
+@media (min-width: 64em) {
+  body {
+    font-size: 1.125rem;
+  }
+
+  main {
+    padding: 2.5rem 2rem 3.5rem;
+  }
+
+  main > section {
+    padding: 1.75rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
