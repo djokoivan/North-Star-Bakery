@@ -401,3 +401,149 @@ footer a:hover {
     font-size: 1.75rem;
   }
 }
+
+/* ==========================================================
+   Interactive features (Touchstone 4): pre-order list and
+   form validation. Same four colors, no new ones.
+   ========================================================== */
+
+/* "Add to my pre-order list" buttons under each product */
+.product-action {
+  margin: 0.5rem 0 0.25rem;
+}
+
+.product-action button {
+  margin: 0;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.95rem;
+}
+
+/* pressed state: the item is on the list, so the button flips to outline style */
+.product-action button[aria-pressed="true"] {
+  background-color: var(--cream);
+  color: var(--brown);
+}
+
+/* My Pre-Order List panel */
+#preorder-list {
+  flex-basis: 100%;
+  background-color: var(--cream);
+  border-width: 3px;
+}
+
+#list-status {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+
+#list-status:focus {
+  outline: 3px solid var(--brown);
+  outline-offset: 3px;
+}
+
+#list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+#list-items li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  max-width: none;
+  margin: 0;
+  padding: 0.75rem;
+  border: 2px solid var(--tan);
+  border-radius: 8px;
+}
+
+#list-items li strong {
+  flex: 1 1 14rem;
+}
+
+#list-items li label {
+  margin: 0;
+}
+
+#list-items input {
+  width: 5rem;
+}
+
+#list-items button {
+  min-height: 40px;
+  margin: 0;
+  padding: 0.4rem 1rem;
+  background-color: var(--cream);
+  color: var(--brown);
+}
+
+#list-total {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brown);
+}
+
+#send-list {
+  display: inline-block;
+  margin: 0 1rem 0.5rem 0;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  background-color: var(--brown);
+  color: var(--cream);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#send-list[hidden],
+#clear-list[hidden],
+#list-total[hidden],
+#prefill-note[hidden] {
+  display: none;
+}
+
+/* Form messages */
+#prefill-note,
+#form-status {
+  max-width: none;
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+
+#prefill-note {
+  padding: 0.75rem;
+  border-left: 6px solid var(--tan);
+}
+
+#form-status:not(:empty) {
+  padding: 0.75rem;
+  border: 3px solid var(--brown);
+  border-radius: 8px;
+}
+
+#form-status:focus {
+  outline: 3px solid var(--brown);
+  outline-offset: 3px;
+}
+
+/* Validation: message under the field, thicker dashed border on the field */
+.error {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--brown);
+  font-weight: 700;
+}
+
+.error:empty {
+  display: none;
+}
+
+[aria-invalid="true"] {
+  border-style: dashed;
+  border-width: 4px;
+}
