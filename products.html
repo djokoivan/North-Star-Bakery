@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Breads, pastries, cookies, and cakes from North Star Bakery, with price ranges.">
   <title>Our Products | North Star Bakery</title>
-   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="shared.js" defer></script>
   <script src="products.js" defer></script>
 </head>
@@ -27,6 +27,17 @@
     <h1>Our Products</h1>
     <p>Everything at North Star Bakery is made by hand in small batches. Prices are listed as ranges because they vary by size and flavor. There is no online checkout: <a href="contact.html">send us a pre-order request</a> and we will confirm by email.</p>
 
+    <section id="preorder-list" aria-labelledby="list-heading">
+      <h2 id="list-heading">My Pre-Order List</h2>
+      <p id="list-status" tabindex="-1" aria-live="polite"></p>
+      <ul id="list-items"></ul>
+      <p id="list-total" hidden></p>
+      <p>
+        <a id="send-list" href="contact.html" hidden>Send my list as a pre-order request</a>
+        <button type="button" id="clear-list" hidden>Clear list</button>
+      </p>
+    </section>
+
     <section aria-labelledby="signature-heading">
       <h2 id="signature-heading">Our Signature Loaf</h2>
       <figure>
@@ -34,6 +45,7 @@
         <figcaption>Signature Loaf: our rustic whole-grain sourdough, fermented for 24 hours and baked until deeply golden.</figcaption>
       </figure>
       <p>This is the loaf that started it all. It is chewy, nutty, and wonderful toasted with butter. Price range: $8&ndash;$10.</p>
+      <div class="product-action" data-product-id="signature-loaf"></div>
     </section>
 
     <section aria-labelledby="breads-heading">
@@ -41,26 +53,33 @@
       <img src="bakery-bread.jpg" alt="Rows of crusty artisan loaves, some seeded and some dusted with flour, on a bakery display shelf" width="500">
       <h3>Sourdough and Country Loaves</h3>
       <p>Crusty, tangy, and baked fresh each morning. Price range: $7&ndash;$10.</p>
+      <div class="product-action" data-product-id="sourdough-country"></div>
       <h3>Seeded and Whole-Grain Breads</h3>
       <p>Topped with sunflower, flax, and pumpkin seeds. Price range: $8&ndash;$11.</p>
+      <div class="product-action" data-product-id="seeded-whole-grain"></div>
       <h3>Dinner Rolls</h3>
       <p>Soft, buttery rolls sold by the half dozen or dozen. Price range: $6&ndash;$12.</p>
+      <div class="product-action" data-product-id="dinner-rolls"></div>
     </section>
 
     <section aria-labelledby="pastries-heading">
       <h2 id="pastries-heading">Pastries and Cookies</h2>
       <h3>Morning Pastries</h3>
       <p>Croissants, cinnamon twists, and seasonal fruit pastries. Price range: $3.50&ndash;$5.50 each.</p>
+      <div class="product-action" data-product-id="morning-pastries"></div>
       <h3>Cookies</h3>
       <p>Chocolate chunk, sugar-dusted, and iced shortbread, sold individually or by the box. Price range: $2.50&ndash;$3.50 each; boxes of six $14&ndash;$18.</p>
+      <div class="product-action" data-product-id="cookies"></div>
     </section>
 
     <section aria-labelledby="cakes-heading">
       <h2 id="cakes-heading">Cakes and Special Orders</h2>
       <h3>Celebration Cakes</h3>
       <p>Custom 6-inch to 10-inch cakes for birthdays, showers, and more. Price range: $35&ndash;$85. Please allow 72 hours.</p>
+      <div class="product-action" data-product-id="celebration-cakes"></div>
       <h3>Event Platters</h3>
       <p>Bread baskets, pastry trays, and cookie platters for meetings and gatherings. Price range: $40&ndash;$150.</p>
+      <div class="product-action" data-product-id="event-platters"></div>
       <p><a href="contact.html">Ready to order? Send a pre-order request.</a></p>
     </section>
   </main>
